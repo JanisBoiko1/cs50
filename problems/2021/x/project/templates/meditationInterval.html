@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+    <main class="main2">
+        <!-- Based on:
+        Title: I coded a HIIT Timer with HTML and CSS (Part 1)
+        Author: teclado
+        Date: 2020
+        Aveilability: https://www.youtube.com/watch?v=-cq--miq5NI -->
+
+        <table>
+            <thead>
+                 <tr>
+                    <td><span class="timer" id="timer_m">{{ interval }}</span></td>
+                    <td id="timer_dotes">:</td>
+                    <td><span class="timer" id="timer_s">00</span></td>
+            </thead>
+        </table>
+        <progress max="{{ intervalSec }}" value="{{ intervalSec }}" class="progress progress--rest" id="progressBar"></progress>
+    </main>
+
+        <!-- Based on: Title: Build a HIIT Timer with Flask and JavaScript (Part 2)
+        Author: teclado
+        Date: 2020
+        Aveilability: https://www.youtube.com/watch?v=9YUy26jb33g -->
+        <script type="application/javascript">
+        const timerMElement = document.getElementById("timer_m");
+        const timerSElement = document.getElementById("timer_s");
+        const progressBar = document.getElementById("progressBar")
+        var timerCounter = progressBar.max;
+        const interval = setInterval(() => {
+            if (timerCounter <= 1) {
+                window.location.href = "{{ url_for('meditationComplete') }}";
+                clearInterval(interval);
+            }
+            timerCounter = timerCounter - 1;
+
+            timerM =parseInt(timerCounter/60)
+            timerS = timerCounter%60
+
+            if(timerM < 10){
+                timerM = "0" + timerM;
+            }
+            if(timerS < 10){
+                timerS = "0" + timerS;}
+
+            timerSElement.innerText = timerS;
+            timerMElement.innerText = timerM;
+
+            progressBar.value = timerCounter;
+        }, 1000);
+    </script>
+
+{% endblock %}

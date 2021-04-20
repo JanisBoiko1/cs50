@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Task for today
+{% endblock %}
+
+{% block main %}
+<main class = "main">
+    <div>
+        <h2 class = "title_h2">{{ Date.dayWeek }}</h2>
+        <h2  class = "title_h2">{{ Date.day }}</h2>
+    </div>
+    <form action="/add" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="newtask" placeholder="New Task" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="details" placeholder="Task details" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="doDate" placeholder="Do date" type="date">
+        </div>
+        <div class="form control" name="lengthType">
+            <label class="form__label" for="length">Task length:</label>
+            <select class="form-control" name="lengthType">
+                <option>Hours</option>
+                <option>Days</option>
+                <option>Weeks</option>
+            </select>
+            <input autocomplete="off" autofocus class="form-control" name="lengthNumber" placeholder="How many?" type="number">
+            </div>
+        <br>
+        <button class="btn btn-info" type="submit">Add Task</button>
+    </form>
+    <div>
+        <hr>
+        <h3 class = "title_h3">To do list:</h3>
+        <table class ="table">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Details</th>
+                <th>Due Date</th>
+                <th>Completion</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+           {% for chore in chores %}
+                <tr>
+                    <td>{{ chore.task }}</td>
+                    <td>{{ chore.datails }}</td>
+                    <td>{{ chore.doDate }}</td>
+                    {% if chore.complete == False %}
+                    <td> Not Completed </td>
+                    {% else %}
+                    <td> Completed </td>
+                    {% endif %}
+                    <!-- Buttons based on:
+                    Title: Python Flask Beginner Tutorial - Todo App - Crash Course
+                    Author: Python Engineer
+                    Date: 2020
+                    Code version: none
+                    Availability: https://www.youtube.com/watch?v=yKHJsLUENl0 -->
+                    <td><a class="btn btn-outline-info" href="/update/{{ chore.task_id }}"> Update </a></td>
+                    <td><a class="btn btn-outline-info" href="/delete/{{ chore.task_id }}"> Delete </a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</main>
+{% endblock %}

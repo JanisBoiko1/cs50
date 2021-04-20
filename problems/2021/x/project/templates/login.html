@@ -1,0 +1,25 @@
+<!--Based on:
+Title: CS50 finance code
+Author: cs50 Staff
+Date: n.d.
+Code version: 2020
+Availability: https://cs50.harvard.edu/x/2021/psets/9/finance/-->
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<main class = "main">
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-info" type="submit">Log In</button>
+    </form>
+</main>
+{% endblock %}

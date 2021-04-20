@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+        <!-- Based on:
+        Title: I coded a HIIT Timer with HTML and CSS (Part 1)
+        Author: teclado
+        Date: 2020
+        Aveilability: https://www.youtube.com/watch?v=-cq--miq5NI -->
+        <main class="main2">
+
+            <table>
+                <thead>
+                     <tr>
+                        <td><span class="timer" id="timer_m">{{ duration }}</span></td>
+                        <td id="timer_dotes">:</td>
+                        <td><span class="timer" id="timer_s">00</span></td>
+                </thead>
+            </table>
+            <progress max="{{ durationSec }}" value="{{ durationSec }}" class="progress progress--set" id="progressBar"></progress>
+
+        </main>
+
+       <script type="application/javascript">
+        const timerMElement = document.getElementById("timer_m");
+        const timerSElement = document.getElementById("timer_s");
+        const progressBar = document.getElementById("progressBar")
+        var timerCounter = progressBar.max;
+        const interval = setInterval(() => {
+            if (timerCounter  <= 1) {
+                window.location.href = "{{ url_for('meditationInterval') }}";
+                clearInterval(interval);
+            }
+            timerCounter = timerCounter - 1;
+
+            timerM =parseInt(timerCounter/60)
+            timerS = timerCounter%60
+
+            if(timerM < 10){
+                timerM = "0" + timerM;
+            }
+            if(timerS < 10){
+                timerS = "0" + timerS;
+
+            }
+
+            timerSElement.innerText = timerS;
+            timerMElement.innerText = timerM;
+
+            progressBar.value = timerCounter;
+
+        }, 1000);
+    </script>
+
+{% endblock %}

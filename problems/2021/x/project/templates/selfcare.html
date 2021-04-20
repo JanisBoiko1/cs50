@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Self care
+{% endblock %}
+
+{% block main %}
+
+<main class = "main">
+    <div>
+    <p> You reached the end of the work planed for today, it's time for some rest and taking care of your self. Physical exercise, meditation and journalig are good options for finishing up the day. You may make a list of activities you intend to do in order to take some time for yourself.</p>
+    </div>
+    <hr>
+    <h3> Add self care activity </h3>
+    <form action="/scadd" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="activity" placeholder="Activity" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="details" placeholder="Details" type="text">
+        </div>
+            <button class="btn btn-info" type="submit">Add Activity</button>
+    </form>
+
+    <hr>
+        <div>
+        <h3>Activites</h3>
+        <table>
+        <thead>
+            <tr>
+                <th>Activiy</th>
+                <th>Details</th>
+                <th> Completion </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+           {% for activity in activities %}
+                <tr>
+                    <td>{{ activity.activity }}</td>
+                    <td>{{ activity.details }}</td>
+                    {% if activity.complete == False %}
+                    <td> Not Completed </td>
+                    {% else %}
+                    <td> Completed </td>
+                    {% endif %}
+                    <!-- Buttons based on:
+                    Title: Python Flask Beginner Tutorial - Todo App - Crash Course
+                    Author: Python Engineer
+                    Date: 2020
+                    Code version: none
+                    Availability: https://www.youtube.com/watch?v=yKHJsLUENl0 -->
+                    <td><a class="btn btn-outline-info" href="/updatesc/{{ activity.activity_id }}"> Update </a></td>
+                    <td><a class="btn btn-outline-info" href="/deletesc/{{ activity.activity_id }}"> Delete </a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</main>
+{% endblock %}

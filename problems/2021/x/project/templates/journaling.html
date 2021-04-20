@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Journal
+{% endblock %}
+
+{% block main %}
+<main class = "main">
+    <div>
+    <h3> Journal </h3>
+
+    <form action="/journal" method="post" id="textform">
+        <label for="journal">My journal:</label>
+
+        <textarea id="journaling" autofocus name="journal" class="form-control" rows="6" cols="50">--/--/-- - Sunday: Feeling ... .</textarea>
+
+        <br>
+        <input class="btn btn-info"  type="submit" value="Submit">
+        <hr>
+
+    </form>
+    </div>
+
+    <br>
+
+    <div>
+        <h3> Query journal database </h3>
+
+
+        <form action="/query" method="post">
+            <input autocomplete="off" name="date" class="form-control" type="date">
+            <button class="btn btn-info" type="submit">Search</button>
+        </form>
+    </div>
+</main>
+
+{% endblock %}

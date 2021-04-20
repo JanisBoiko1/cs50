@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<main class="main2">
+    <h2 class = "title_h2">{{ Date.dayWeek }}, {{ Date.day }}</h2>
+    <br>
+    <div class="container">
+        <div class="row">
+
+            <div class = "col">
+
+                <h3 class = "title_h3" >Reminders</h3>
+                    <table class ="table">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Details</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {% for Reminder in Reminders %}
+                            <tr>
+                                <td>{{ Reminder.reminder }}</td>
+                                <td>{{ Reminder.datails }}</td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+
+            <div class = "col">
+                <h3 class = "title_h3">Today's tasks</h3>
+                    <table class ="table">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Details</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for chore in chores %}
+                            <tr>
+                                <td>{{ chore.task }}</td>
+                                <td>{{ chore.datails }}</td>
+                            {% if chore.complete == False %}
+                            <td> Not Completed </td>
+                            {% else %}
+                            <td> Completed </td>
+                            {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+
+            <div class = "col">
+
+                <h3 class = "title_h3"> Week's Tasks </h3>
+                <table class ="table">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Due Date</th>
+                            <th>Details</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for week in weeks %}
+                            <tr>
+                                <td>{{ week.task }}</td>
+                                <td>{{ week.doDate }}</td>
+                                <td>{{ week.datails }}</td>
+                                {% if week.complete == False %}
+                                <td> Not Completed </td>
+                                {% else %}
+                                <td> Completed </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class = "col">
+                <h3 class = "title_h3">Month's tasks</h3>
+                <table class ="table">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Details</th>
+                            <th>Due Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for Month in Months %}
+                            <tr>
+                                <td>{{ Month.task }}</td>
+                                <td>{{ Month.datails }}</td>
+                                <td>{{ Month.doDate }}</td>
+
+                                {% if Month.complete == False %}
+                                <td> Not Completed </td>
+                                {% else %}
+                                <td> Completed </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

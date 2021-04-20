@@ -1,0 +1,243 @@
+.red{
+    color: #294019;
+    font-size: 30px;
+    text-align: center;
+}
+.logo{
+    margin-right: 0;
+    width: 120px;
+    height: 60px;
+}
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+    font-family: "Alegria";
+    color: #4d4d4d;
+
+}
+
+/* Colors for brand */
+
+navbar navbar-expand-lg navbar-light bg-light border
+{
+    background-color: #EFEFEF;
+}
+
+nav{
+    font-family: "Alegria";
+}
+
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+/*body{
+    background-color: #f2f2f2;
+}*/
+
+.main
+{
+    overflow-x: auto;
+
+
+    text-align: center;
+
+    font-family: "Alegria";
+    color: #292929;
+}
+.main2 {
+
+    overflow-x: auto;
+    font-family: "Alegria";
+    text-align: center;
+    color: #292929;
+}
+
+/* Based on: Title: I coded a HIIT Timer with HTML and CSS (Part 1)
+Author: teclado
+Date: 2020
+Aveilability: https://www.youtube.com/watch?v=-cq--miq5NI */
+
+,
+::afer,
+::before {
+    box-sizing: inherit;
+}
+
+
+.main {
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 0 auto;
+    padding:0 1.25rem;
+}
+
+.header{
+    font-weight: bold;
+    color: #0D0D0D;
+    padding: .5rem 2rem;
+    margin-bottom: 1.75rem;
+
+
+}
+
+.headder__logo{
+    font-size: 1rem;
+}
+
+.heading{
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-family: "Noto Sans";
+}
+.table_timer{
+    background-color: white;
+}
+#timer_m{
+    text-align: right;
+
+}
+#timer_s{
+    text-align: left;
+}
+#timer_dotes{
+    font-size: 3rem;
+}
+.title_h2{
+    font-family: "Noto Sans Regular 400 italic";
+}
+.title_h3{
+
+    font-family: "Noto Sans Regular 400 italic";
+}
+.table{
+    font-family: "Noto Sans Regular 400 italic";
+    color: #292929;
+}
+
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: #ededed;
+}
+
+footer{
+    font-family: "Noto Sans Regular 400 italic";
+}
+
+.timer{
+    display: block;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.form{
+    font-size: 0.9rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1.5rem;
+    column-gap: 0.25rem;
+    align-itens: center;
+    width: auto;
+
+    }
+
+
+.form__label{
+    margin-right: 10px;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.form__input{
+    max_width: 6rem;
+    width: 100%;
+    border: 1px solid #D9D7D7;
+    padding:7px 10px;
+    font-size: inherit;
+    color: #4d4d4d;
+
+    border-width: 1px;
+    border-color: #D9D7D7;
+
+}
+
+.form__input:focus {
+  border-color: #89f5ef;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 255, 0.6);
+}
+
+.progress {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #cdc7c2;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.progress,
+.progress::-webkit-progress-bar {
+    background-color: #81e3dc;
+}
+
+.progress--set::-webkit-progress-value {
+    background-color: #f56565;
+
+}
+
+.progress--rest::-webkit-progress-value {
+    background-color: #65f596;
+
+}
+
+
+.u-center-text{
+    display: block;
+    text-align: center;
+}
+
+#btn-submit{
+    grid-area:3/2;
+}
+
+.oldentrys{
+    font-family: "Noto Sans Regular 400 italic";
+}
+
+.calendar{
+    font-family: "Noto Sans Regular 400 italic";
+}
+.c-dropdown__item {
+  position: relative;
+}
+
+.dropdown-menu > ul {
+  display: none;
+  position: absolute;
+}
+
+.dropdown-item:hover > ul {
+  display: block;
+}

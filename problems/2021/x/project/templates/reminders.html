@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Reminders
+{% endblock %}
+
+{% block main %}
+<main class = "main">
+    <div>
+    <h3>Add Reminder</h3>
+    <form action="/reminders" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="reminder" placeholder="New Reminder" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="details" placeholder="Details" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="date" placeholder="Date" type="date">
+        </div>
+
+        <button class="btn btn-info" type="submit">Add Reminder</button>
+    </form>
+    </div>
+    <div>
+    <hr>
+    <h3>Reminders</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Details</th>
+                <th>Date</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+           {% for Reminder in Reminders %}
+                <tr>
+                    <td>{{ Reminder.reminder }}</td>
+                    <td>{{ Reminder.datails }}</td>
+                    <td>{{ Reminder.doDate }}</td>
+                    <!-- Buttons based on:
+                    Title: Python Flask Beginner Tutorial - Todo App - Crash Course
+                    Author: Python Engineer
+                    Date: 2020
+                    Code version: none
+                    Availability: https://www.youtube.com/watch?v=yKHJsLUENl0 -->
+                    <td><a class="btn btn-outline-info" href="/delete2/{{ Reminder.reminder_id }}"> Delete </a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</main>
+{% endblock %}

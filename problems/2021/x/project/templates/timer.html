@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Timer
+{% endblock %}
+
+{% block main %}
+
+        <!-- Based on: Title: I coded a HIIT Timer with HTML and CSS (Part 1)
+        Author: teclado
+        Date: 2020
+        Aveilability: https://www.youtube.com/watch?v=-cq--miq5NI -->
+        <main class="main2">
+            <h2 class="heading">Setup</h2>
+            <span style="font-family: Noto Sans" class="timer">00s</span>
+            <progress max="10" value="10" class="progress progress--set" id="progresBar"></progress>
+
+            <br>
+            <div style="font-family: Noto Sans">
+                <form class="form" method="post">
+                    <label class="form__label" for="work">Work/Study:</label>
+                    <input class="form__input" type="number" name="work_min" id="work_min" value="25">
+
+                    <span class="units">(minutes)</span>
+
+                    <label class="form__label" for="break">Break:</label>
+                    <input class="form__input" type="number" name="break_min" id="break_min" value="05">
+
+                    <span class="units">(minutes)</span>
+
+                    <label class="form__label" for="sets">Sets:</label>
+                    <input class="form__input" type="number" name="sets" id="sets" value="08">
+
+                    <button class="btn btn-info" type="submit">Start!</button>
+                </form>
+            </div>
+        </main>
+
+
+{% endblock %}

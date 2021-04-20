@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Journal Entrys
+{% endblock %}
+{% block main %}
+    <h3 class ="title_h2"> Entrys:</h3>
+    <div class="oldentrys">
+    <table class = "table">
+        <tbody>
+           {% for entry in entrys %}
+                <tr>
+                    <td>"{{ entry.entry }}"</td>
+                    <td>{{ entry.date }}</td>
+
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
